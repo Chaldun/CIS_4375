@@ -16,7 +16,9 @@ Run > Edit Configuration > Main (try to run if not found) > Select Main class > 
 
 Add path "--module-path "C:\Program Files\Java\javafx-sdk-16\lib" --add-modules javafx.controls,javafx.fxml"  MAKE SURE TO CHANGE PATH TO REFLECT YOUR OWN > RUN
 
+## Setup
 
+Project Structures > Libraries > Plus Sign "+" > Java > Drill down to drivers folder within SRC and highlight all > Apply
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
