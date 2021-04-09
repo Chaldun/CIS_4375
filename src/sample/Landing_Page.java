@@ -11,17 +11,11 @@ import java.util.ResourceBundle;
 public class Landing_Page implements Initializable {
 
 
-    public Label Hidden_Text;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
-    public void Show_Text(ActionEvent actionEvent) {
-        Hidden_Text.setVisible(true);
 
-    }
-
-
+    public void Close_App(ActionEvent actionEvent) { System.exit(0); }
 }

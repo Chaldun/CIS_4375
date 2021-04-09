@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="controlsfx-8.40.13">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/Drivers/controlsfx-8.40.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Drivers/TrayTester.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Drivers/javafx.web.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Drivers/javafx.media.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Drivers/javafx-swt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Drivers/javafx.swing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Drivers/javafx.graphics.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Drivers/javafx.base.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Drivers/javafx.controls.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Drivers/jfoenix-9.0.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Drivers/mssql-jdbc-8.2.2.jre11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Drivers/javafx.fxml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Drivers/fxsampler-1.0.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/Drivers/controlsfx-samples-8.40.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/src/Drivers/controlsfx-samples-8.40.13.jar!/" />
+    </SOURCES>
+  </library>
+</component>
