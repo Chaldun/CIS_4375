@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Landing_Page.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login_Page.fxml"));
         primaryStage.setTitle("Outback Auto Repair");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

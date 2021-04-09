@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="Login_Controller_Pane" prefHeight="820.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Login_Controller">
+   <children>
+      <MenuBar VBox.vgrow="NEVER">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="New" />
+                  <MenuItem mnemonicParsing="false" text="Open…" />
+                  <Menu mnemonicParsing="false" text="Open Recent" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Save As…" />
+                  <MenuItem mnemonicParsing="false" text="Revert" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Preferences…" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#Close_App" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Undo" />
+                  <MenuItem mnemonicParsing="false" text="Redo" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Cut" />
+                  <MenuItem mnemonicParsing="false" text="Copy" />
+                  <MenuItem mnemonicParsing="false" text="Paste" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Select All" />
+                  <MenuItem mnemonicParsing="false" text="Unselect All" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="443.0" prefWidth="754.0" style="-fx-background-color: #2d3447;" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox layoutX="513.0" layoutY="236.0" prefHeight="58.0" prefWidth="386.0">
+               <children>
+                  <Label prefHeight="58.0" prefWidth="163.0" text="Outback" textFill="#2196f3">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="58.0" prefWidth="232.0" text="Auto Repair" textFill="#a0a2ab">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <PasswordField fx:id="Login_Password" layoutX="542.0" layoutY="430.0" prefHeight="44.0" prefWidth="290.0" promptText="Password">
+               <font>
+                  <Font size="15.0" />
+               </font></PasswordField>
+            <TextField fx:id="Login_Email" layoutX="542.0" layoutY="350.0" prefHeight="44.0" prefWidth="290.0" promptText="Email">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="102.0" fitWidth="269.0" layoutX="546.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Resources/Car Repair logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="77.0" fitWidth="50.0" layoutX="455.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Resources/contacts-64.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="77.0" fitWidth="50.0" layoutX="453.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Resources/Lock 2_64px.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="Login_Button" layoutX="737.0" layoutY="523.0" onAction="#Login_Action" prefHeight="50.0" prefWidth="99.0" style="-fx-background-color: #2196f3;" text="Login" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="593.0" layoutY="611.0" onAction="#Forgot_Password" prefHeight="30.0" prefWidth="188.0" text="Forgot Password?" textFill="#a0a2ab" underline="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXButton>
+            <ProgressIndicator fx:id="Login_Progress" layoutX="600.0" layoutY="525.0" visible="false" />
+         </children></AnchorPane>
+   </children>
+</VBox>
