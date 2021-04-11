@@ -10,5 +10,7 @@
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="controlsfx-8.40.13" level="project" />
     <orderEntry type="library" name="javafx-swt" level="project" />
+    <orderEntry type="library" name="TrayTester" level="project" />
+    <orderEntry type="library" name="activation-1.1.1" level="project" />
   </component>
 </module>
