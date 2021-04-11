@@ -22,34 +22,31 @@ import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class Login_Controller implements Initializable {
-    private final String DB_URL = "jdbc:sqlserver://172.26.54.26;database=oardb";
+    private final String DB_URL = "jdbc:sqlserver://172.26.54.26;database=oardb";  // Connection String to DB
     final String USER = "admin";
     final String PASS = "password";
-
-
-    public JFXButton Login_Button;
-    public PasswordField Login_Password;
-    public TextField Login_Email;
-    public Button Show_Dots;
-    public ProgressIndicator Login_Progress;
-    public TextField Email_Recovery;
-    public JFXComboBox Security_Q1;
-    public JFXComboBox Security_Q2;
-    public TextField Security_A1;
-    public TextField Security_A2;
-    public VBox Forgot_Password_Pane;
-    public JFXButton Submit_Button;
-    public JFXButton Recovery_Login_Button;
-
     String ID = null;
+    @FXML
+    private JFXButton Login_Button;
+    @FXML
+    private PasswordField Login_Password;
+    @FXML
+    private TextField Login_Email;
+    @FXML
+    private ProgressIndicator Login_Progress;
     @FXML
     private VBox Login_Controller_Pane;
 
@@ -60,9 +57,11 @@ public class Login_Controller implements Initializable {
     }
 
 
-    public void Close_App(ActionEvent actionEvent) { System.exit(0); }
+    @FXML
+    private void Close_App(ActionEvent actionEvent) { System.exit(0);}
 
-    public void Login_Action(ActionEvent event)
+    @FXML
+    private void Login_Action(ActionEvent event)
     {
         Login_Progress.setVisible(true);
         PauseTransition whis = new PauseTransition();
@@ -130,27 +129,10 @@ public class Login_Controller implements Initializable {
         }
     }
 
-    public void Forgot_Password(ActionEvent actionEvent) throws IOException
+    @FXML
+    private void Forgot_Password(ActionEvent actionEvent) throws IOException
     {
         VBox Forgot_Password_Pane = FXMLLoader.load(getClass().getResource("Password_Recovery.fxml"));
         Login_Controller_Pane.getChildren().setAll(Forgot_Password_Pane);
-    }
-
-    public void Security_Q1(ActionEvent event) {
-    }
-
-    public void Security_Q1_List(MouseEvent mouseEvent) {
-    }
-
-    public void Security_Q2(ActionEvent event) {
-    }
-
-    public void Security_Q2_List(MouseEvent mouseEvent) {
-    }
-
-    public void Submit_Action(ActionEvent event) {
-    }
-
-    public void Recovery_Login_Button(ActionEvent event) {
     }
 }
