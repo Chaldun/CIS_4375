@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
@@ -16,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="Forgot_Password_Pane" prefHeight="820.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Password_Recovery_Controller">
+<VBox fx:id="Sign_Up_Pane" prefHeight="820.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Sign_Up_Controller">
     <children>
         <MenuBar VBox.vgrow="NEVER">
             <menus>
@@ -59,41 +60,36 @@
         </MenuBar>
         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="443.0" prefWidth="754.0" style="-fx-background-color: #2d3447;" VBox.vgrow="ALWAYS">
             <children>
-                <HBox layoutX="513.0" layoutY="236.0" prefHeight="58.0" prefWidth="386.0">
+                <HBox layoutX="900.0" layoutY="117.0" prefHeight="58.0" prefWidth="176.0" rotate="10.3">
                     <children>
-                        <Label prefHeight="58.0" prefWidth="205.0" text="Password" textFill="#2196f3">
+                        <Label prefHeight="58.0" prefWidth="84.0" text="Sign" textFill="#2196f3">
                             <font>
                                 <Font size="40.0" />
                             </font>
                         </Label>
-                        <Label prefHeight="58.0" prefWidth="232.0" text="Recovery" textFill="#a0a2ab">
+                        <Label prefHeight="58.0" prefWidth="76.0" text="Up" textFill="#a0a2ab">
                             <font>
                                 <Font size="40.0" />
                             </font>
                         </Label>
                     </children>
                 </HBox>
-                <TextField fx:id="Email_Recovery" layoutX="542.0" layoutY="350.0" prefHeight="44.0" prefWidth="290.0" promptText="Email">
-                    <font>
-                        <Font size="15.0" />
-                    </font>
-                </TextField>
-                <ImageView fitHeight="102.0" fitWidth="269.0" layoutX="546.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="102.0" fitWidth="269.0" layoutX="546.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../Resources/Car Repair logo.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="77.0" fitWidth="50.0" layoutX="455.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="77.0" fitWidth="50.0" layoutX="453.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../Resources/reviewer-64.png" />
+                        <Image url="@../Resources/contacts-64.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="77.0" fitWidth="50.0" layoutX="453.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="77.0" fitWidth="50.0" layoutX="453.0" layoutY="555.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../Resources/user-shield-64.png" />
                     </image>
                 </ImageView>
-                <JFXButton fx:id="Submit_Button" layoutX="737.0" layoutY="628.0" onAction="#Submit_Action" prefHeight="50.0" prefWidth="99.0" style="-fx-background-color: #2196f3;" text="Submit" textFill="WHITE" translateX="1.0">
+                <JFXButton fx:id="Submit_Button_Sign_Up" layoutX="737.0" layoutY="728.0" onAction="#Submit_Action_Sign_Up" prefHeight="50.0" prefWidth="99.0" style="-fx-background-color: #2196f3;" text="Submit" textFill="WHITE" translateX="1.0">
                     <font>
                         <Font size="20.0" />
                     </font>
@@ -103,24 +99,65 @@
                         <Font size="20.0" />
                     </font>
                 </JFXButton>
-                <ProgressIndicator fx:id="Login_Progress" layoutX="600.0" layoutY="630.0" translateX="1.0" visible="false" />
-            <JFXComboBox fx:id="Security_Q1" labelFloat="true" layoutX="546.0" layoutY="437.0" onAction="#Security_Q1" onMouseClicked="#Security_Q1_List" prefHeight="44.0" prefWidth="290.0" promptText="Security Question 1" style="-fx-prompt-text-fill: a0a2ab; -fx-text-inner-color: a0a2ab; -fx-test-cell-fill: a0a2ab;" />
-            <ImageView fitHeight="77.0" fitWidth="50.0" layoutX="457.0" layoutY="519.0" pickOnBounds="true" preserveRatio="true">
+                <ProgressIndicator fx:id="Sign_Up_Progress" layoutX="600.0" layoutY="730.0" translateX="1.0" visible="false" />
+            <JFXComboBox fx:id="Combo_Box_Security_Q1_Sign_Up" labelFloat="true" layoutX="546.0" layoutY="562.0" onAction="#Combo_Box_Security_Q1_Sign_Up" onMouseClicked="#Combo_Box_Security_Q1_Sign_Up" prefHeight="44.0" prefWidth="290.0" promptText="Security Question 1" style="-fx-prompt-text-fill: a0a2ab; -fx-text-inner-color: a0a2ab; -fx-test-cell-fill: a0a2ab;" />
+            <ImageView fitHeight="77.0" fitWidth="50.0" layoutX="453.0" layoutY="644.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Resources/user-shield-64.png" />
                </image>
             </ImageView>
-            <JFXComboBox fx:id="Security_Q2" labelFloat="true" layoutX="546.0" layoutY="518.0" onAction="#Security_Q2" onMouseClicked="#Security_Q2_List" prefHeight="44.0" prefWidth="290.0" promptText="Security Question 2" style="-fx-prompt-text-fill: a0a2ab; -fx-text-inner-color: a0a2ab; -fx-test-cell-fill: a0a2ab;" />
-            <TextField fx:id="Security_A1" layoutX="942.0" layoutY="436.0" prefHeight="44.0" prefWidth="290.0" promptText="Security Question Answer 1">
+            <JFXComboBox fx:id="Combo_Box_Security_Q2_Sign_Up" labelFloat="true" layoutX="546.0" layoutY="643.0" onAction="#Combo_Box_Security_Q2_Sign_Up" onMouseClicked="#Combo_Box_Security_Q2_Sign_Up" prefHeight="44.0" prefWidth="290.0" promptText="Security Question 2" style="-fx-prompt-text-fill: a0a2ab; -fx-text-inner-color: a0a2ab; -fx-test-cell-fill: a0a2ab;" />
+            <TextField fx:id="Security_A1_Sign_Up" layoutX="942.0" layoutY="554.0" prefHeight="44.0" prefWidth="290.0" promptText="Security Question Answer 1">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="Security_A2" layoutX="942.0" layoutY="518.0" prefHeight="44.0" prefWidth="290.0" promptText="Security Question Answer 2">
+            <TextField fx:id="Security_A2_Sign_Up" layoutX="942.0" layoutY="636.0" prefHeight="44.0" prefWidth="290.0" promptText="Security Question Answer 2">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
+            <VBox layoutX="546.0" layoutY="147.0" spacing="40.0">
+               <children>
+                      <TextField fx:id="Email_Sign_Up" prefHeight="44.0" prefWidth="290.0" promptText="Enter Email">
+                          <font>
+                              <Font size="15.0" />
+                          </font>
+                      </TextField>
+                  <TextField fx:id="First_Name_Sign_Up" prefHeight="44.0" prefWidth="290.0" promptText="Enter First Name">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="Last_Name_Sign_Up" prefHeight="44.0" prefWidth="290.0" promptText="Enter Last Name">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="Password_Sign_Up" prefHeight="44.0" prefWidth="290.0" promptText="Enter Password" />
+                  <PasswordField fx:id="Confirm_Password_Sign_Up" prefHeight="44.0" prefWidth="290.0" promptText="Confirm Password" />
+               </children>
+            </VBox>
+            <ImageView fitHeight="77.0" fitWidth="50.0" layoutX="453.0" layoutY="399.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Resources/Lock%202_64px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="77.0" fitWidth="50.0" layoutX="453.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Resources/Lock%202_64px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="77.0" fitWidth="50.0" layoutX="453.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Resources/contacts-64.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="77.0" fitWidth="50.0" layoutX="453.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Resources/contacts-64.png" />
+               </image>
+            </ImageView>
             </children></AnchorPane>
     </children>
 </VBox>

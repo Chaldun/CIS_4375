@@ -32,7 +32,7 @@ public class DataValidation
         if (!PASSWORD.matches(Password_Regex))
         {
             tray.setTitle("Unsuccessful");
-            tray.setMessage("Password should be 6-20 characters with at least one digit, one upper case letter, one lower case letter and one special symbol (“@#$%”)");
+            tray.setMessage("Password should be 6-20 characters with at least one digit, one upper case letter, one lower case letter");
             tray.setNotificationType(NotificationType.ERROR);
             tray.showAndDismiss(Duration.seconds(10));
             throw new IllegalArgumentException();
@@ -83,5 +83,78 @@ public class DataValidation
             throw new IllegalArgumentException();
         }
 
+    }
+    public static void SignUP_Validator(String EMAIL, String F_Name, String L_Name, String Password, String C_Password,
+                                        String Sec_Q1, String Sec_Q2, String Q1_Answer, String Q2_Answer) throws Exception {
+        String Email_Regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
+        String Name_Regex = "^[a-zA-Z -]{1,20}$";
+        String Answer_Format = "^[a-zA-Z0-9 ._-]{1,25}$";
+        String Password_Regex = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,20}$";
+        TrayNotification tray = new TrayNotification();
+        AnimationType type = AnimationType.POPUP;
+        tray.setAnimationType(type);
+
+        if (!EMAIL.matches(Email_Regex))
+        {
+            tray.setTitle("Unsuccessful");
+            tray.setMessage("Email must contain Emailname@domain.extension ");
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            throw new IllegalArgumentException();
+        }
+
+        if (!F_Name.matches(Name_Regex) || !L_Name.matches(Name_Regex))
+        {
+            tray.setTitle("Unsuccessful");
+            tray.setMessage("Incorrect format for name , A-Z");
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            throw new IllegalArgumentException();
+        }
+
+        if (!Password.matches(Password_Regex))
+        {
+            tray.setTitle("Unsuccessful Password Format ");
+            tray.setMessage("Password should be 6-20 characters with at least one digit, one upper case letter, one lower case letter");
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            throw new IllegalArgumentException();
+        }
+
+        if (!Password.matches(C_Password))
+        {
+            tray.setTitle("Passwords do not match");
+            tray.setMessage("Please try again");
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            throw new IllegalArgumentException();
+        }
+
+        if(Sec_Q1.compareTo(Sec_Q2) == 0 || Sec_Q2.compareTo(Sec_Q1) == 0)
+        {
+            tray.setTitle("Unsuccessful");
+            tray.setMessage("Security Questions Cannot be the same");
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            throw new IllegalArgumentException();
+        }
+
+        if (!Q1_Answer.matches(Answer_Format))
+        {
+            tray.setTitle("Unsuccessful Format ");
+            tray.setMessage("A-Z and Numbers in Answer Field 1");
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            throw new IllegalArgumentException();
+        }
+
+        if (!Q2_Answer.matches(Answer_Format))
+        {
+            tray.setTitle("Unsuccessful Format ");
+            tray.setMessage("A-Z and Numbers in Answer Field 2");
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            throw new IllegalArgumentException();
+        }
     }
 }
