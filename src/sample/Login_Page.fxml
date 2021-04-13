@@ -108,6 +108,11 @@
                </font>
             </JFXButton>
             <ProgressIndicator fx:id="Login_Progress" layoutX="600.0" layoutY="525.0" visible="false" />
+            <JFXButton fx:id="Sign_Up_Button" layoutX="1171.0" layoutY="54.0" onAction="#Sign_Up_Button" prefHeight="50.0" prefWidth="99.0" style="-fx-background-color: #2196f3;" text="Sign Up" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXButton>
          </children></AnchorPane>
    </children>
 </VBox>

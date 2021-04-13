@@ -49,6 +49,10 @@ public class Login_Controller implements Initializable {
     private ProgressIndicator Login_Progress;
     @FXML
     private VBox Login_Controller_Pane;
+    @FXML
+    private VBox Sign_Up_Pane;
+    @FXML
+    private JFXButton Sign_Up_Button;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -134,5 +138,11 @@ public class Login_Controller implements Initializable {
     {
         VBox Forgot_Password_Pane = FXMLLoader.load(getClass().getResource("Password_Recovery.fxml"));
         Login_Controller_Pane.getChildren().setAll(Forgot_Password_Pane);
+    }
+
+    @FXML
+    private void Sign_Up_Button(ActionEvent event) throws IOException {
+        VBox Sign_Up_Pane = FXMLLoader.load(getClass().getResource("Sign_Up.fxml"));
+        Login_Controller_Pane.getChildren().setAll(Sign_Up_Pane);
     }
 }
