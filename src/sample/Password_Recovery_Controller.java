@@ -45,8 +45,8 @@ public class Password_Recovery_Controller implements Initializable {
     final String GMAILpassword = "549657ll";
     String ID = null;
     private boolean isMyComboBoxEmpty;
-    ObservableList<String> Sec_Q1 = FXCollections.observableArrayList(); //Used for Security Question 1 combo Box
-    ObservableList<String> Sec_Q2 = FXCollections.observableArrayList(); //Used for Security Question 2 combo Box
+    ObservableList<String> Sec_Q1_rec = FXCollections.observableArrayList(); //Used for Security Question 1 combo Box
+    ObservableList<String> Sec_Q2_rec = FXCollections.observableArrayList(); //Used for Security Question 2 combo Box
     @FXML
     private VBox Forgot_Password_Pane;
     @FXML
@@ -85,44 +85,34 @@ public class Password_Recovery_Controller implements Initializable {
     private void Close_App(ActionEvent event) {System.exit(0);}
 
     @FXML
-    private void Submit_Action(ActionEvent event) {
-    }
-
-    @FXML
     private void Recovery_Login_Button(ActionEvent event) throws IOException
     {
         VBox Login_Controller_Pane = FXMLLoader.load(getClass().getResource("Login_Page.fxml"));
         Forgot_Password_Pane.getChildren().setAll(Login_Controller_Pane);
     }
 
-    @FXML
-    private void Security_Q1(ActionEvent event) {
-    }
+//    @FXML
+//    private void Combo_Box_Security_Q1(MouseEvent mouseEvent)
+//    {
+//        Combo_Box_Security_Q1.setItems(Sec_Q1_rec);
+//        Combo_Box_Security_Q1.setStyle("-fx-background-color: a0a2ab;");
+//        Sec_Q1_rec.clear();
+//        Sec_Q1_rec.setAll("In what city or town was your first job?", "What is the name of your first pet?", "What are the last five digits of your drivers licence number?");
+//
+//    }
+
+//    @FXML
+//    private void Combo_Box_Security_Q2(MouseEvent mouseEvent)
+//    {
+//        this.Combo_Box_Security_Q2.setItems(Sec_Q2_rec);
+//        this.Combo_Box_Security_Q2.setStyle("-fx-background-color: a0a2ab;");
+//        Sec_Q2_rec.clear();
+//        Sec_Q2_rec.setAll("In what city or town was your first job?", "What is the name of your first pet?", "What are the last five digits of your drivers licence number?");
+//
+//    }
 
     @FXML
-    private void Security_Q1_List(MouseEvent mouseEvent)
-    {
-        Combo_Box_Security_Q1.setItems(Sec_Q1);
-        Combo_Box_Security_Q1.setStyle("-fx-background-color: a0a2ab;");
-        Sec_Q1.clear();
-        Sec_Q1.setAll("In what city or town was your first job?", "What is the name of your first pet?", "What are the last five digits of your drivers licence number?");
-    }
-
-    @FXML
-    private void Security_Q2(ActionEvent event) {
-    }
-
-    @FXML
-    private void Security_Q2_List(MouseEvent mouseEvent)
-    {
-        Combo_Box_Security_Q2.setItems(Sec_Q2);
-        Combo_Box_Security_Q2.setStyle("-fx-background-color: a0a2ab;");
-        Sec_Q2.clear();
-        Sec_Q2.setAll("In what city or town was your first job?", "What is the name of your first pet?", "What are the last five digits of your drivers licence number?");
-    }
-
-    @FXML
-    private void Submit_Recovery(ActionEvent event)
+    private void Submit_Action(ActionEvent event)
     {
         if (isMyComboBoxEmpty = Combo_Box_Security_Q1.getSelectionModel().isEmpty() || Combo_Box_Security_Q2.getSelectionModel().isEmpty())
         {
@@ -162,7 +152,6 @@ public class Password_Recovery_Controller implements Initializable {
                     "  AND securityAnswer2 =('"+Q2_Answer+"')");
 
             int count = 0;
-
 
             while (resultSet.next())
             {
@@ -217,7 +206,30 @@ public class Password_Recovery_Controller implements Initializable {
                 tray.setNotificationType(NotificationType.ERROR);
                 tray.showAndDismiss(Duration.seconds(5));
             }
-
         } catch (SQLException e) { e.printStackTrace(); }
+    }
+
+    @FXML
+    private void Combo_Box_Security_Q1_List(MouseEvent mouseEvent)
+    {
+        Combo_Box_Security_Q1.setItems(Sec_Q1_rec);
+        Combo_Box_Security_Q1.setStyle("-fx-background-color: a0a2ab;");
+        Sec_Q1_rec.clear();
+        Sec_Q1_rec.setAll("In what city or town was your first job?", "What is the name of your first pet?", "What are the last five digits of your drivers licence number?");
+
+    }
+
+    @FXML
+    private void Combo_Box_Security_Q2_List(MouseEvent mouseEvent)
+    {
+        Combo_Box_Security_Q2.setItems(Sec_Q2_rec);
+        Combo_Box_Security_Q2.setStyle("-fx-background-color: a0a2ab;");
+        Sec_Q2_rec.clear();
+        Sec_Q2_rec.setAll("In what city or town was your first job?", "What is the name of your first pet?", "What are the last five digits of your drivers licence number?");
+
+    }
+
+    @FXML
+    private void Secuirty_Q1(ActionEvent event) {
     }
 }

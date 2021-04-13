@@ -44,8 +44,8 @@ public class Sign_Up_Controller implements Initializable {
     private String S_Email;
     private String S_Date;
     private boolean isMyComboBoxEmpty;
-    ObservableList<String> Sec_Q1 = FXCollections.observableArrayList(); //Used for Security Question 1 combo Box
-    ObservableList<String> Sec_Q2 = FXCollections.observableArrayList(); //Used for Security Question 2 combo Box
+    ObservableList<String> Sec_Q1_SignUp = FXCollections.observableArrayList(); //Used for Security Question 1 combo Box
+    ObservableList<String> Sec_Q2_SignUp = FXCollections.observableArrayList(); //Used for Security Question 2 combo Box
     @FXML
     private ProgressIndicator Sign_Up_Progress;
     @FXML
@@ -70,7 +70,11 @@ public class Sign_Up_Controller implements Initializable {
     private PasswordField Password_Sign_Up;
     @FXML
     private PasswordField Confirm_Password_Sign_Up;
-
+    private String S_Pass;
+    private String S_Sec_Q1;
+    private String S_Sec_Q2;
+    private String S_Sec_A1;
+    private String S_Sec_A2;
 
 
     @Override
@@ -130,6 +134,11 @@ public class Sign_Up_Controller implements Initializable {
             S_F_Name = First_Name_Sign_Up.getText().toUpperCase();
             S_L_Name = Last_Name_Sign_Up.getText().toUpperCase();
             S_Email = Email_Sign_Up.getText().toUpperCase();
+            S_Pass = Password_Sign_Up.getText().toUpperCase();
+            S_Sec_Q1 = Combo_Box_Security_Q1_Sign_Up.getValue().toString();
+            S_Sec_Q2 = Combo_Box_Security_Q2_Sign_Up.getValue().toString();
+            S_Sec_A1 = Security_A1_Sign_Up.getText().toUpperCase();
+            S_Sec_A2 = Security_A2_Sign_Up.getText().toUpperCase();
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDateTime now = LocalDateTime.now();
             S_Date = dtf.format(now);
@@ -137,19 +146,17 @@ public class Sign_Up_Controller implements Initializable {
             Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
             PreparedStatement stmt = null;
 
-//            stmt = conn.prepareStatement("INSERT INTO dbo.[Login] (email,password,createdAt,updatedAt,accountTypeId,securityQuestion1,securityQuestion2,securityAnswer1,securityAnswer2,firstName,lastName)" +
-//                    "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
             stmt = conn.prepareStatement("INSERT INTO dbo.Login (email,password,createdAt,updatedAt,accountTypeId,securityQuestion1,securityQuestion2,securityAnswer1,securityAnswer2,firstName,lastName)" +
-                    "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+                    "VALUES (?,?,?,?,?,?,?,?,?,?,?)");
             stmt.setString(1, S_Email);
             stmt.setString(2, Password_Sign_Up.getText());
             stmt.setString(3, S_Date);
             stmt.setString(4, S_Date);
-            stmt.setString(5, String.valueOf(2));
-            stmt.setString(6, String.valueOf(Sec_Q1));
-            stmt.setString(7, String.valueOf(Sec_Q2));
-            stmt.setString(8, String.valueOf(Security_A1_Sign_Up));
-            stmt.setString(9, String.valueOf(Security_A2_Sign_Up));
+            stmt.setInt(5, 2);
+            stmt.setString(6, S_Sec_Q1);
+            stmt.setString(7, S_Sec_Q2);
+            stmt.setString(8, S_Sec_A1);
+            stmt.setString(9, S_Sec_A2);
             stmt.setString(10, S_F_Name);
             stmt.setString(11, S_L_Name);
 
@@ -165,22 +172,28 @@ public class Sign_Up_Controller implements Initializable {
     }
 
     @FXML
-    private void Recovery_Login_Button(ActionEvent event) {
+    private void Combo_Box_Security_Q1_Sign_Up(MouseEvent mouseEvent)
+    {
+        Combo_Box_Security_Q1_Sign_Up.setItems(Sec_Q1_SignUp);
+        Combo_Box_Security_Q1_Sign_Up.setStyle("-fx-background-color: a0a2ab;");
+        Sec_Q1_SignUp.clear();
+        Sec_Q1_SignUp.setAll("In what city or town was your first job?", "What is the name of your first pet?", "What are the last five digits of your drivers licence number?");
+
     }
 
     @FXML
-    private void Security_Q1_List_Sign_Up(MouseEvent mouseEvent) {
+    private void Combo_Box_Security_Q2_Sign_Up(MouseEvent mouseEvent)
+    {
+        Combo_Box_Security_Q2_Sign_Up.setItems(Sec_Q1_SignUp);
+        Combo_Box_Security_Q2_Sign_Up.setStyle("-fx-background-color: a0a2ab;");
+        Sec_Q2_SignUp.clear();
+        Sec_Q2_SignUp.setAll("In what city or town was your first job?", "What is the name of your first pet?", "What are the last five digits of your drivers licence number?");
+
     }
 
     @FXML
-    private void Security_Q2_List_Sign_Up(MouseEvent mouseEvent) {
-    }
-
-    @FXML
-    private void Combo_Box_Security_Q1_Sign_Up(ActionEvent event) {
-    }
-
-    @FXML
-    private void Combo_Box_Security_Q2_Sign_Up(ActionEvent event) {
+    private void Login_Button_Sign_Up(ActionEvent event) throws IOException {
+        VBox Login_Controller_Pane = FXMLLoader.load(getClass().getResource("Login_Page.fxml"));
+        Sign_Up_Pane.getChildren().setAll(Login_Controller_Pane);
     }
 }
